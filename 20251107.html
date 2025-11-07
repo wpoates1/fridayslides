@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IBM EMEA Report: The Race for ROI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 640px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        @media (min-width: 1024px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .chart-container-sm {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 280px;
+            max-height: 350px;
+        }
+        .chart-container-wide {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 450px;
+        }
+        @media (min-width: 768px) {
+             .chart-container-wide {
+                height: 400px;
+            }
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-blue-900': '#00449E',
+                        'brand-blue-700': '#0A69CF',
+                        'brand-blue-500': '#1989F7',
+                        'brand-blue-400': '#33A1FD',
+                        'brand-blue-300': '#66BFFF',
+                        'brand-gray-100': '#f4f4f4',
+                        'brand-gray-800': '#393939',
+                        'brand-gray-600': '#6f6f6f',
+                    }
+                },
+                fontFamily: {
+                    sans: ['Inter', 'sans-serif'],
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-brand-gray-100 text-brand-gray-800 font-sans">
+
+    <header class="bg-brand-blue-900 text-white p-8 text-center shadow-lg">
+        <h1 class="text-4xl md:text-5xl font-bold mb-2">The Race for ROI</h1>
+        <p class="text-xl md:text-2xl font-light text-brand-blue-300">How AI is Transforming Enterprise Productivity in EMEA</p>
+    </header>
+
+    <main class="max-w-7xl mx-auto p-4 md:p-8">
+
+        <section class="mb-8 p-6 md:p-8 bg-white rounded-lg shadow-md">
+            <h2 class="text-3xl font-bold text-brand-blue-900 mb-4 text-center">The Productivity Imperative</h2>
+            <p class="text-lg text-brand-gray-800 max-w-4xl mx-auto text-center mb-8">
+                In 2024, productivity growth in Europe remains stagnant at under 1%. AI presents a transformative opportunity to reverse this trend, with the potential to add trillions in value to the global economy. Forward-thinking organizations are already moving beyond tactical deployment to embed AI into their core operational fabric.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                <div class="bg-brand-gray-100 p-6 rounded-lg">
+                    <div class="text-5xl font-bold text-brand-blue-700">&lt;1%</div>
+                    <div class="text-lg text-brand-gray-600 mt-2">Productivity growth in Europe in 2024</div>
+                </div>
+                <div class="bg-brand-gray-100 p-6 rounded-lg">
+                    <div class="text-5xl font-bold text-brand-blue-700">+3%</div>
+                    <div class="text-lg text-brand-gray-600 mt-2">Potential annual global productivity boost from AI</div>
+                </div>
+                <div class="bg-brand-gray-100 p-6 rounded-lg">
+                    <div class="text-5xl font-bold text-brand-blue-700">$4T</div>
+                    <div class="text-lg text-brand-gray-600 mt-2">Estimated value AI could add to the global economy</div>
+                </div>
+            </div>
+        </section>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
+
+            <div class="lg:col-span-1 bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-2xl font-bold text-brand-blue-900 mb-3">AI's Tangible Impact</h3>
+                <p class="text-brand-gray-600 mb-4">
+                    The indicators are promising. A clear majority of senior leaders across EMEA report that AI has already delivered significant productivity improvements, and optimism for future gains remains high.
+                </p>
+                <div class="chart-container-sm">
+                    <canvas id="productivityGainsChart"></canvas>
+                </div>
+                <p class="text-brand-gray-800 mt-4 text-center">
+                    Only 2% of leaders surveyed see or expect no meaningful impact from AI within the next two years.
+                </p>
+            </div>
+
+            <div class="lg:col-span-2 bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-2xl font-bold text-brand-blue-900 mb-3">How AI Delivers Value</h3>
+                <p class="text-brand-gray-600 mb-6">
+                    Leaders are seeing AI's impact across the enterprise, primarily through increased efficiency and better decision-making. The benefits are most pronounced in customer-facing and technical development roles.
+                </p>
+                <div class="grid grid-cols-1 xl:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="text-lg font-semibold text-center mb-2">Top 3 Productivity Benefits</h4>
+                        <div class="chart-container">
+                            <canvas id="benefitsChart"></canvas>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold text-center mb-2">Top 3 Areas of Impact</h4>
+                        <div class="chart-container">
+                            <canvas id="areasChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-3 bg-brand-blue-700 text-white rounded-lg shadow-md p-6 md:p-8">
+                <h2 class="text-3xl font-bold text-center mb-6">Spotlight: Banking & Financial Services</h2>
+                <p class="text-lg text-brand-blue-300 max-w-4xl mx-auto text-center mb-8">
+                    The financial services sector is leading the charge, with 72% of leaders reporting significant AI-driven productivity gains, well above the EMEA average of 66%.
+                </p>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <div class="bg-white text-brand-gray-800 rounded-lg p-6 shadow">
+                        <h4 class="text-lg font-semibold text-brand-blue-900 text-center mb-2">Sector vs. EMEA Average</h4>
+                        <div class="chart-container-sm">
+                            <canvas id="finServCompareChart"></canvas>
+                        </div>
+                        <p class="text-center mt-4 text-brand-gray-600">
+                            Financial services leaders are seeing demonstrably higher productivity gains from AI compared to the cross-sector average.
+                        </p>
+                    </div>
+                    <div class="bg-white text-brand-gray-800 rounded-lg p-6 shadow">
+                        <h4 class="text-lg font-semibold text-brand-blue-900 text-center mb-2">Top Benefits in Finance</h4>
+                        <div class="chart-container-sm">
+                            <canvas id="finServBenefitsChart"></canvas>
+                        </div>
+                         <p class="text-center mt-4 text-brand-gray-600">
+                            Efficiency and decision-making are the paramount benefits, slightly ahead of the EMEA average.
+                        </p>
+                    </div>
+                    <div class="bg-white text-brand-gray-800 rounded-lg p-6 shadow flex flex-col justify-center">
+                        <h4 class="text-lg font-semibold text-brand-blue-900 text-center mb-4">Case Study: Al Rajhi Capital</h4>
+                        <p class="text-center text-brand-gray-600 mb-4">
+                            A new AI-powered 'super app' unified investment services and drove massive growth.
+                        </p>
+                        <div class="text-center mb-4">
+                            <div class="text-5xl font-bold text-brand-blue-700">+40%</div>
+                            <div class="text-lg text-brand-gray-600 mt-1">Surge in brokerage business volume</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-5xl font-bold text-brand-blue-700">+1000%</div>
+                            <div class="text-lg text-brand-gray-600 mt-1">Increase in customer asset management onboarding</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="lg:col-span-1 bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-2xl font-bold text-brand-blue-900 mb-3">The ROI Reality</h3>
+                <p class="text-brand-gray-600 mb-4">
+                    AI investments are paying off faster than anticipated. 60% of EMEA leaders expect to achieve their ROI goals within a single year, and confidence in future AI agents is nearly universal.
+                </p>
+                <div class="chart-container-sm">
+                    <canvas id="roiTimelineChart"></canvas>
+                </div>
+                <div class="mt-6 text-center bg-brand-gray-100 p-4 rounded-lg">
+                    <div class="text-5xl font-bold text-brand-blue-700">92%</div>
+                    <div class="text-lg text-brand-gray-600 mt-1">
+                        of leaders are confident AI agents will deliver measurable ROI within two years.
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-2 bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-2xl font-bold text-brand-blue-900 mb-3">Top Investment Priorities</h3>
+                <p class="text-brand-gray-600 mb-4">
+                    When prioritizing AI investments for productivity, leaders are focused on core operations. Increasing efficiency is the clear top priority, followed by enhancing data-driven decision-making and modernizing IT infrastructure.
+                </p>
+                <div class="chart-container-wide">
+                    <canvas id="investmentPrioritiesChart"></canvas>
+                </div>
+                <p class="text-brand-gray-600 mt-4">
+                    Tactical activities like content creation (34%) and task automation (36%) are seen as lower priorities compared to these foundational improvements.
+                </p>
+            </div>
+
+            <div class="lg:col-span-3 bg-white rounded-lg shadow-md p-6 md:p-8">
+                <h2 class="text-3xl font-bold text-brand-blue-900 mb-4 text-center">AI as a Strategic Enabler</h2>
+                <p class="text-lg text-brand-gray-600 max-w-4xl mx-auto text-center mb-8">
+                    Progressive organizations are moving beyond simple automation. They are using AI to fundamentally redesign core processes and transform their business models from reactive to predictive.
+                </p>
+                <div class="space-y-6 max-w-5xl mx-auto">
+                    <div class="grid grid-cols-3 md:grid-cols-5 items-center gap-2">
+                        <div class="col-span-1 md:col-span-2 text-right text-brand-gray-600 text-sm md:text-base">Linear Value Chains</div>
+                        <div class="col-span-1 text-brand-blue-500 text-3xl font-bold text-center">&#8594;</div>
+                        <div class="col-span-1 md:col-span-2 flex items-center space-x-2">
+                            <span class="text-xl md:text-2xl font-bold text-brand-blue-700">76%</span>
+                            <span class="text-sm md:text-base font-semibold">AI-Enabled Platforms</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-3 md:grid-cols-5 items-center gap-2">
+                        <div class="col-span-1 md:col-span-2 text-right text-brand-gray-600 text-sm md:text-base">Periodic Risk Assessments</div>
+                        <div class="col-span-1 text-brand-blue-500 text-3xl font-bold text-center">&#8594;</div>
+                        <div class="col-span-1 md:col-span-2 flex items-center space-x-2">
+                            <span class="text-xl md:text-2xl font-bold text-brand-blue-700">79%</span>
+                            <span class="text-sm md:text-base font-semibold">Continuous AI-Powered Monitoring</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-3 md:grid-cols-5 items-center gap-2">
+                        <div class="col-span-1 md:col-span-2 text-right text-brand-gray-600 text-sm md:text-base">Reactive Resource Management</div>
+                        <div class="col-span-1 text-brand-blue-500 text-3xl font-bold text-center">&#8594;</div>
+                        <div class="col-span-1 md:col-span-2 flex items-center space-x-2">
+                            <span class="text-xl md:text-2xl font-bold text-brand-blue-700">77%</span>
+                            <span class="text-sm md:text-base font-semibold">Predictive Optimization</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-3 md:grid-cols-5 items-center gap-2">
+                        <div class="col-span-1 md:col-span-2 text-right text-brand-gray-600 text-sm md:text-base">Automating Existing Steps</div>
+                        <div class="col-span-1 text-brand-blue-500 text-3xl font-bold text-center">&#8594;</div>
+                        <div class="col-span-1 md:col-span-2 flex items-center space-x-2">
+                            <span class="text-xl md:text-2xl font-bold text-brand-blue-700">75%</span>
+                            <span class="text-sm md:text-base font-semibold">Redesigning Entire Value Streams</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="lg:col-span-3 bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-2xl font-bold text-brand-blue-900 mb-3 text-center">Elevating Employee & Customer Experiences</h3>
+                <p class="text-brand-gray-600 mb-6 text-center max-w-3xl mx-auto">
+                    AI is unlocking human potential. By automating repetitive tasks, it frees employees to focus on higher-value work like innovation and strategy, while simultaneously transforming customer engagement.
+                </p>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="text-lg font-semibold text-center mb-2">New Focus for Employees</h4>
+                        <div class="chart-container">
+                            <canvas id="newWorkFocusChart"></canvas>
+                        </div>
+                         <p class="text-center mt-4 text-brand-gray-600">
+                            Freed from repetitive tasks, teams are engaging more in innovation, strategic planning, and creative work.
+                        </p>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold text-center mb-2">AI in Customer Engagement</h4>
+                        <div class="chart-container">
+                            <canvas id="customerFocusChart"></canvas>
+                        </div>
+                        <p class="text-center mt-4 text-brand-gray-600">
+                            Organizations are using AI to build stronger customer relationships through virtual assistants, fraud detection, and behavior analysis.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-3 bg-white rounded-lg shadow-md p-6 md:p-8">
+                <h2 class="text-3xl font-bold text-brand-blue-900 mb-6 text-center">Unlocking the Full Potential: 5 Key Priorities</h2>
+                <p class="text-lg text-brand-gray-600 max-w-4xl mx-auto text-center mb-8">
+                    To accelerate ROI and move from tactical gains to strategic transformation, enterprise leaders should focus on five key priorities.
+                </p>
+                <ol class="space-y-6 max-w-4xl mx-auto">
+                    <li class="flex items-start space-x-4">
+                        <span class="flex-shrink-0 w-10 h-10 flex items-center justify-center bg-brand-blue-500 text-white text-xl font-bold rounded-full">1</span>
+                        <div>
+                            <h4 class="text-xl font-semibold text-brand-blue-900">Establish an Effective Operating Model</h4>
+                            <p class="text-brand-gray-600">Define a common approach (e.g., federated or hub-and-spoke) with clear ownership to deliver on investment.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start space-x-4">
+                        <span class="flex-shrink-0 w-10 h-10 flex items-center justify-center bg-brand-blue-500 text-white text-xl font-bold rounded-full">2</span>
+                        <div>
+                            <h4 class="text-xl font-semibold text-brand-blue-900">Cultivate AI Literacy</h4>
+                            <p class="text-brand-gray-600">Build knowledge from the board to entry-level to ensure AI is applied to the right areas for maximum value.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start space-x-4">
+                        <span class="flex-shrink-0 w-10 h-10 flex items-center justify-center bg-brand-blue-500 text-white text-xl font-bold rounded-full">3</span>
+                        <div>
+                            <h4 class="text-xl font-semibold text-brand-blue-900">Get Comfortable with Uncertainty</h4>
+                            <p class="text-brand-gray-600">Develop a culture that embraces rapid change and enables purposeful, agile innovation in an "AI everywhere" world.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start space-x-4">
+                        <span class="flex-shrink-0 w-10 h-10 flex items-center justify-center bg-brand-blue-500 text-white text-xl font-bold rounded-full">4</span>
+                        <div>
+                            <h4 class="text-xl font-semibold text-brand-blue-900">Understand & Manage Deployment Risks</h4>
+                            <p class="text-brand-gray-600">Apply AI governance tooling to monitor and mitigate regulatory, reputational, and operational risks like data sharing and bias.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start space-x-4">
+                        <span class="flex-shrink-0 w-10 h-10 flex items-center justify-center bg-brand-blue-500 text-white text-xl font-bold rounded-full">5</span>
+                        <div>
+                            <h4 class="text-xl font-semibold text-brand-blue-900">Establish a Cross-Company "AI Board"</h4>
+                            <p class="text-brand-gray-600">Define ethical principles and risk appetite, reviewing high-risk use cases to give business units autonomy to implement AI with confidence.</p>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </main>
+
+    <footer class="text-center text-brand-gray-600 py-10 px-4">
+        <p>Data sourced from the IBM EMEA Report: The Race for ROI. Based on a survey of over 3,500 senior business leaders.</p>
+        <p class="text-sm mt-2">This infographic was generated as a single-page application and does not use SVG or Mermaid JS.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const brandBlue500 = '#1989F7';
+            const brandBlue700 = '#0A69CF';
+            const brandBlue300 = '#66BFFF';
+            const brandBlue900 = '#00449E';
+            const brandBlue400 = '#33A1FD';
+            const brandGray600 = '#6f6f6f';
+
+            function tooltipTitleCallback(tooltipItems) {
+                const item = tooltipItems[0];
+                if (!item) return '';
+                let label = item.chart.data.labels[item.dataIndex];
+                return Array.isArray(label) ? label.join(' ') : label;
+            }
+
+            const chartTooltipConfig = {
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            title: tooltipTitleCallback
+                        },
+                        backgroundColor: '#393939',
+                        titleFont: { size: 14 },
+                        bodyFont: { size: 12 },
+                        padding: 10,
+                        cornerRadius: 4,
+                        displayColors: false,
+                    },
+                    legend: {
+                        display: false
+                    }
+                },
+                responsive: true,
+                maintainAspectRatio: false,
+            };
+
+            const horizontalBarOptions = {
+                ...chartTooltipConfig,
+                indexAxis: 'y',
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        grid: {
+                            drawOnChartArea: false,
+                            borderColor: brandGray600,
+                        },
+                        ticks: {
+                            color: brandGray600,
+                        }
+                    },
+                    y: {
+                        grid: {
+                            display: false,
+                            borderColor: brandGray600,
+                        },
+                        ticks: {
+                            color: brandGray600,
+                            font: {
+                                size: 12
+                            }
+                        }
+                    }
+                }
+            };
+            
+            const verticalBarOptions = {
+                ...chartTooltipConfig,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            drawOnChartArea: false,
+                            borderColor: brandGray600,
+                        },
+                        ticks: {
+                            color: brandGray600,
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false,
+                            borderColor: brandGray600,
+                        },
+                        ticks: {
+                            color: brandGray600,
+                            font: {
+                                size: 12
+                            }
+                        }
+                    }
+                }
+            };
+
+            const donutOptions = {
+                ...chartTooltipConfig,
+                plugins: {
+                    ...chartTooltipConfig.plugins,
+                    legend: {
+                        display: true,
+                        position: 'bottom',
+                        labels: {
+                            color: brandGray600,
+                            font: {
+                                size: 12
+                            }
+                        }
+                    }
+                },
+                cutout: '60%',
+            };
+
+            const productivityGainsCtx = document.getElementById('productivityGainsChart')?.getContext('2d');
+            if (productivityGainsCtx) {
+                new Chart(productivityGainsCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['66% - Significant Gains Seen', '23% - Expect Gains in 2 Yrs', '9% - Limited Gains', '2% - No Impact Seen'],
+                        datasets: [{
+                            data: [66, 23, 9, 2],
+                            backgroundColor: [brandBlue700, brandBlue400, brandBlue300, brandGray600],
+                            borderColor: '#ffffff',
+                            borderWidth: 2,
+                        }]
+                    },
+                    options: donutOptions
+                });
+            }
+
+            const benefitsCtx = document.getElementById('benefitsChart')?.getContext('2d');
+            if (benefitsCtx) {
+                new Chart(benefitsCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: [['Increased operational', 'efficiency'], ['Enhanced', 'decision-making'], ['Augmented workforce', 'capabilities']],
+                        datasets: [{
+                            label: 'Benefit %',
+                            data: [55, 50, 48],
+                            backgroundColor: [brandBlue700, brandBlue500, brandBlue400],
+                            borderRadius: 4,
+                        }]
+                    },
+                    options: horizontalBarOptions
+                });
+            }
+
+            const areasCtx = document.getElementById('areasChart')?.getContext('2d');
+            if (areasCtx) {
+                new Chart(areasCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Customer service', ['Software', 'development'], ['Client or account', 'management']],
+                        datasets: [{
+                            label: 'Impact Area %',
+                            data: [37, 33, 31],
+                            backgroundColor: [brandBlue700, brandBlue500, brandBlue400],
+                            borderRadius: 4,
+                        }]
+                    },
+                    options: horizontalBarOptions
+                });
+            }
+
+            const finServCompareCtx = document.getElementById('finServCompareChart')?.getContext('2d');
+            if (finServCompareCtx) {
+                new Chart(finServCompareCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Financial Services', 'EMEA Average'],
+                        datasets: [{
+                            label: 'Significant Productivity Gains',
+                            data: [72, 66],
+                            backgroundColor: [brandBlue900, brandBlue300],
+                            barThickness: 50,
+                        }]
+                    },
+                    options: verticalBarOptions
+                });
+            }
+
+            const finServBenefitsCtx = document.getElementById('finServBenefitsChart')?.getContext('2d');
+            if (finServBenefitsCtx) {
+                new Chart(finServBenefitsCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: [['Increased operational', 'efficiency'], ['Enhanced', 'decision-making'], ['Augmented workforce', 'capabilities']],
+                        datasets: [{
+                            label: 'Benefit %',
+                            data: [59, 55, 47],
+                            backgroundColor: [brandBlue900, brandBlue700, brandBlue500],
+                            borderRadius: 4,
+                        }]
+                    },
+                    options: horizontalBarOptions
+                });
+            }
+            
+            const roiTimelineCtx = document.getElementById('roiTimelineChart')?.getContext('2d');
+            if (roiTimelineCtx) {
+                new Chart(roiTimelineCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['20% - Already Achieved', '40% - Expect in 1 Year', '40% - More than 1 Year'],
+                        datasets: [{
+                            data: [20, 40, 40],
+                            backgroundColor: [brandBlue700, brandBlue400, brandBlue300],
+                            borderColor: '#ffffff',
+                            borderWidth: 2,
+                        }]
+                    },
+                    options: donutOptions
+                });
+            }
+
+            const investmentPrioritiesCtx = document.getElementById('investmentPrioritiesChart')?.getContext('2d');
+            if (investmentPrioritiesCtx) {
+                new Chart(investmentPrioritiesCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: [['Increasing operational', 'efficiency'], ['Enhancing', 'decision-making'], ['IT modernization and', 'optimization'], ['Enhancing risk', 'mitigation'], ['Personalization &', 'task automation'], ['Marketing & content', 'creation']],
+                        datasets: [{
+                            label: 'Priority %',
+                            data: [51, 42, 40, 36, 36, 34],
+                            backgroundColor: [brandBlue900, brandBlue700, brandBlue500, brandBlue400, brandBlue300, brandGray600],
+                            borderRadius: 4,
+                        }]
+                    },
+                    options: horizontalBarOptions
+                });
+            }
+            
+            const newWorkFocusCtx = document.getElementById('newWorkFocusChart')?.getContext('2d');
+            if (newWorkFocusCtx) {
+                new Chart(newWorkFocusCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: [['Driving innovation', 'and new ideas'], ['Strategic', 'planning'], ['Engaging in', 'creative work']],
+                        datasets: [{
+                            label: 'Employees engaging more in %',
+                            data: [39, 36, 33],
+                            backgroundColor: [brandBlue700, brandBlue500, brandBlue400],
+                        }]
+                    },
+                    options: verticalBarOptions
+                });
+            }
+
+            const customerFocusCtx = document.getElementById('customerFocusChart')?.getContext('D');
+            if (customerFocusCtx) {
+                new Chart(customerFocusCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: [['Creating intelligent', 'virtual assistants'], ['Fraud detection', 'and prevention'], ['Behavior prediction', 'and analysis']],
+                        datasets: [{
+                            label: 'Focus Area %',
+                            data: [39, 38, 38],
+                            backgroundColor: [brandBlue700, brandBlue500, brandBlue400],
+                        }]
+                    },
+                    options: verticalBarOptions
+                });
+            }
+
+        });
+    </script>
+
+    <!-- NEW AUTO-SCROLL SCRIPT -->
+    <script>
+        (function() {
+            let scrollInterval;
+            let isPaused = false;
+            
+            // --- CONFIGURATION ---
+            // Adjust this value to change scroll speed (pixels per step)
+            const scrollStep = 1; 
+            // Adjust this value to change scroll frequency (milliseconds)
+            const scrollFrequency = 20; // e.g., 20ms = 50 steps per second
+            
+            function startScrolling() {
+                scrollInterval = setInterval(() => {
+                    if (!isPaused) {
+                        const pageHeight = document.body.scrollHeight;
+                        const viewportHeight = window.innerHeight;
+                        
+                        // Check if we are at the bottom of the page
+                        if (window.scrollY + viewportHeight >= pageHeight - 1) { // -1 for buffer
+                            window.scrollTo(0, 0); // Loop back to the top
+                        } else {
+                            window.scrollBy(0, scrollStep); // Scroll down
+                        }
+                    }
+                }, scrollFrequency);
+            }
+
+            // Pause scrolling when the mouse is over the page
+            document.body.addEventListener('mouseenter', () => isPaused = true);
+            // Resume scrolling when the mouse leaves
+            document.body.addEventListener('mouseleave', () => isPaused = false);
+
+            // Start the scrolling
+            startScrolling();
+        })();
+    </script>
+</body>
+</html>
