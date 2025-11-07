@@ -594,42 +594,6 @@
         });
     </script>
 
-    <!-- NEW AUTO-SCROLL SCRIPT -->
-    <script>
-        (function() {
-            let scrollInterval;
-            let isPaused = false;
-            
-            // --- CONFIGURATION ---
-            // Adjust this value to change scroll speed (pixels per step)
-            const scrollStep = 1; 
-            // Adjust this value to change scroll frequency (milliseconds)
-            const scrollFrequency = 5; // e.g., 20ms = 50 steps per second
-            
-            function startScrolling() {
-                scrollInterval = setInterval(() => {
-                    if (!isPaused) {
-                        const pageHeight = document.body.scrollHeight;
-                        const viewportHeight = window.innerHeight;
-                        
-                        // Check if we are at the bottom of the page
-                        if (window.scrollY + viewportHeight >= pageHeight - 1) { // -1 for buffer
-                            window.scrollTo(0, 0); // Loop back to the top
-                        } else {
-                            window.scrollBy(0, scrollStep); // Scroll down
-                        }
-                    }
-                }, scrollFrequency);
-            }
 
-            // Pause scrolling when the mouse is over the page
-            document.body.addEventListener('mouseenter', () => isPaused = true);
-            // Resume scrolling when the mouse leaves
-            document.body.addEventListener('mouseleave', () => isPaused = false);
-
-            // Start the scrolling
-            // startScrolling();
-        })();
-    </script>
 </body>
 </html>
