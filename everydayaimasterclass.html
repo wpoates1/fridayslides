@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI for Everyday Impact: Interactive Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 
+    Chosen Palette: Calm Blue and Neutral Gray
+    Application Structure Plan: The linear structure of the masterclass paper was transformed into a non-linear, thematic Single Page Application (SPA). A sticky header navigation allows users to jump directly to any core theme ("The AI Engine", "AI for Efficiency", "AI for Transformation", "The Human Role", "References") rather than scrolling. This topic-based architecture is superior for user exploration and self-paced learning, as masterclass attendees may wish to review specific concepts (like "The Human Role") without navigating the entire document.
+    Visualization & Content Choices: 
+    1. Report Info (1.1 Definitions): Goal: Show hierarchical relationship. Viz: HTML/CSS concentric circles diagram. Interaction: Visual grouping. Justification: Recreates the report's diagrammatic intent without using forbidden SVG/Mermaid, providing high visual impact.
+    2. Report Info (1.3 Code Agent): Goal: Simulate GenAI action. Viz: Text prompt + button. Interaction: On-click reveal of code block. Justification: Makes the abstract "code agent" concept tangible and interactive.
+    3. Report Info (1.4 Risk Factors): Goal: Present keywords. Viz: Styled HTML "pills". Interaction: Visual tags. Justification: More visually engaging than a simple bullet list.
+    4. Report Info (2.1 Reshuffle): Goal: Contrast old vs. new models. Viz: HTML/CSS box-and-line diagrams (linear vs. hub-spoke). Interaction: Buttons toggle visibility of each diagram/text. Justification: Visually demonstrates the core "Reshuffle" concept of coordination vs. execution.
+    5. Report Info (2.2 Portfolio Agent): Goal: Simulate autonomous decision-making. Viz: Dropdown inputs & text output. Interaction: User selects risk/growth, JS logic (from report) returns a decision. Justification: This is the key "wow" factor, turning a text-based rule into a live, interactive simulation.
+    6. Chart.js was *not* used, as the source report is purely conceptual and data-free. Interactive HTML diagrams and JS-based simulations were chosen as far superior methods for presenting and exploring these concepts, aligning with the prompt's allowance for "structured HTML/CSS" for diagrams.
+    CONFIRMATION: NO SVG graphics used. NO Mermaid JS used.
+    -->
+    <style>
+        [data-page] {
+            display: none;
+        }
+        [data-page].active {
+            display: block;
+        }
+        [data-tab-content] {
+            display: none;
+        }
+        [data-tab-content].active {
+            display: block;
+        }
+        .nav-link {
+            @apply px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-100 hover:text-gray-900 cursor-pointer;
+        }
+        .nav-link.active {
+            @apply bg-blue-100 text-blue-700;
+        }
+        .tab-link {
+            @apply px-4 py-2 text-sm font-medium rounded-t-lg cursor-pointer hover:bg-gray-100;
+        }
+        .tab-link.active {
+            @apply border-b-2 border-blue-600 text-blue-600;
+        }
+        .card {
+            @apply bg-white shadow-lg rounded-lg overflow-hidden;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans leading-relaxed">
+
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <h1 class="text-xl font-bold text-blue-700">AI for Everyday Impact</h1>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a data-navlink="home" class="nav-link active">Home</a>
+                        <a data-navlink="engine" class="nav-link">The AI Engine</a>
+                        <a data-navlink="efficiency" class="nav-link">AI for Efficiency</a>
+                        <a data-navlink="transformation" class="nav-link">AI for Transformation</a>
+                        <a data-navlink="human-role" class="nav-link">The Human Role</a>
+                        <a data-navlink="references" class="nav-link">References</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-900 hover:bg-gray-100">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <!-- Mobile menu, hidden by default -->
+        <div id="mobile-menu" class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a data-navlink="home" class="nav-link active block">Home</a>
+                <a data-navlink="engine" class="nav-link block">The AI Engine</a>
+                <a data-navlink="efficiency" class="nav-link block">AI for Efficiency</a>
+                <a data-navlink="transformation" class="nav-link block">AI for Transformation</a>
+                <a data-navlink="human-role" class="nav-link block">The Human Role</a>
+                <a data-navlink="references" class="nav-link block">References</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="container mx-auto p-4 sm:p-6 lg:p-8">
+
+        <!-- Page: Home -->
+        <section data-page="home" class="active">
+            <div class="text-center bg-white p-8 rounded-lg shadow-xl">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Welcome to the Interactive Guide</h2>
+                <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+                    This application is an interactive companion to the masterclass, "AI for Everyday Impact."
+                    It's designed to help you explore the core concepts—from the foundational pillars of AI to its transformative future in finance—in a dynamic and self-paced way. Use the navigation above to jump to any topic.
+                </p>
+            </div>
+        </section>
+
+        <!-- Page: The AI Engine (1.1) -->
+        <section data-page="engine">
+            <div class="card p-6">
+                <h2 class="text-3xl font-bold mb-4 text-blue-700">The AI Engine: Why Now?</h2>
+                <p class="text-lg text-gray-700 mb-6">
+                    The "AI Spring" we are in today is not a single breakthrough, but a convergence of three powerful forces. This section explores those pillars and the key definitions you need to know.
+                </p>
+                
+                <h3 class="text-2xl font-semibold mb-4
