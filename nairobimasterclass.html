@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI for Everyday Impact: Data to Decisions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F4F7F6;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .flow-arrow {
+            font-size: 2.5rem;
+            line-height: 1;
+            color: #F5A623;
+        }
+        .flow-box {
+            border: 2px solid #0094C6;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-dark': '#004E8A',
+                        'primary-light': '#0094C6',
+                        'accent-orange': '#F5A623',
+                        'accent-yellow': '#F8E71C',
+                        'base-gray': '#F4F7F6',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="text-gray-900">
+
+    <main class="container mx-auto p-4 md:p-8 max-w-7xl">
+
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-primary-dark mb-4">AI for Everyday Impact</h1>
+            <p class="text-xl md:text-2xl text-gray-700">Turning Data into Decisions that Matter in Kenyan Finance (circa 2025)</p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+            <section class="md:col-span-2 bg-white rounded-lg shadow-md p-6 md:p-8">
+                <h2 class="text-3xl font-bold text-primary-dark mb-4">Part 1: The New Foundation for Financial Inclusion</h2>
+                <p class="text-lg text-gray-700 mb-6">The greatest challenge for financial inclusion in emerging markets is assessing risk for populations with limited formal credit history. The "AI Trifecta" is the engine solving this, turning alternative data into reliable financial identities, a strategy now core to Nairobi's fintech ecosystem.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-base-gray p-6 rounded-lg">
+                        <h3 class="text-2xl font-semibold text-primary-light mb-2">1. Data Innovation</h3>
+                        <p class="text-gray-800">Leveraging non-traditional data sources. Instead of credit scores, models ingest mobile money transactions (M-Pesa), utility payments, and airtime top-ups to build a holistic financial picture.</p>
+                        <p class="text-sm text-gray-600 mt-4 font-semibold">Example: <span class="font-bold">Tala</span> uses smartphone data and M-Pesa history to score and disburse loans in minutes.</p>
+                    </div>
+                    <div class="bg-base-gray p-6 rounded-lg">
+                        <h3 class="text-2xl font-semibold text-primary-light mb-2">2. Algorithm Innovation</h3>
+                        <p class="text-gray-800">Applying advanced ML and GenAI to this alternative data. These algorithms find predictive patterns in complex, unstructured datasets that traditional models would miss, more accurately assessing creditworthiness.</p>
+                    </div>
+                    <div class="bg-base-gray p-6 rounded-lg">
+                        <h3 class="text-2xl font-semibold text-primary-light mb-2">3. Computational Power</h3>
+                        <p class="text-gray-800">Affordable, scalable cloud infrastructure (AWS, Azure, GCP) allows fintechs to process terabytes of this alternative data and run complex risk models at a cost-effective scale, making micro-lending viable.</p>
+                        <p class="text-sm text-gray-600 mt-4 font-semibold">Example: <span class="font-bold">M-KOPA</span> uses IoT data from its devices and payment histories to finance assets.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bg-white rounded-lg shadow-md p-6 md:p-8">
+                <h2 class="text-3xl font-bold text-primary-dark mb-4">GenAI for Structured Data (The Code Agent)</h2>
+                <p class="text-lg text-gray-700 mb-6">Generative AI acts as a "Code Agent," translating natural language prompts from an analyst into precise SQL or Python code. This dramatically accelerates analysis, allowing analysts to "ask" questions of the data directly without extensive coding.</p>
+
+                <div class="space-y-4">
+                    <div class="bg-amber-100 p-4 rounded-lg border border-accent-orange">
+                        <h4 class="font-semibold text-gray-900 mb-2">Analyst's Natural Language Prompt:</h4>
+                        <p class="font-mono text-sm text-gray-800">"What is our month-over-month growth rate for new active users in the 'M-Pesa integration' cohort for Q1 2025?"</p>
+                    </div>
+
+                    <div class="text-center text-4xl font-bold text-accent-orange">&darr;</div>
+
+                    <div class="bg-blue-100 p-4 rounded-lg border border-primary-light">
+                        <h4 class="font-semibold text-gray-900 mb-2">GenAI-Generated SQL Query:</h4>
+                        <pre class="bg-gray-800 text-white p-4 rounded-md overflow-x-auto"><code class="text-sm">WITH MonthlyUsers AS (
+  SELECT
+    EXTRACT(MONTH FROM created_at) AS month,
+    COUNT(DISTINCT user_id) AS active_users
+  FROM users
+  WHERE cohort = 'mpesa_integration'
+    AND created_at BETWEEN '2025-01-01' AND '2025-03-31'
+  GROUP BY 1
+),
+LaggedUsers AS (
+  SELECT
+    month, active_users,
+    LAG(active_users, 1, 0)
+      OVER (ORDER BY month) AS prev_month_users
+  FROM MonthlyUsers
+)
+SELECT
+  month,
+  (CAST(active_users - prev_month_users AS FLOAT) 
+    / prev_month_users) * 100 AS mom_growth_pct
+FROM LaggedUsers;</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bg-white rounded-lg shadow-md p-6 md:p-8">
+                <h2 class="text-3xl font-bold text-primary-dark mb-4">GenAI for Unstructured Data (The Text Agent)</h2>
+                <p class="text-lg text-gray-700 mb-6">Beyond numbers, GenAI reads and understands vast amounts of text—news, regulatory filings, and reports—to perform sentiment analysis and identify emerging risks. This chart shows a fictional GenAI risk summary for a market portfolio.</p>
+                
+                <div class="chart-container">
+                    <canvas id="riskBarChart"></canvas>
+                </div>
+                
+                <div class="mt-6 bg-base-gray p-4 rounded-lg">
+                    <h4 class="font-semibold text-primary-dark mb-2">Kenyan Market Risk Flags:</h4>
+                    <p class="text-gray-800">The model flagged high regulatory risk based on text snippets containing keywords like: <span class="font-mono bg-red-100 text-red-800 px-2 py-1 rounded">"CBK investigation"</span>, <span class="font-mono bg-red-100 text-red-800 px-2 py-1 rounded">"new excise duty"</span>, and <span class="font-mono bg-red-100 text-red-800 px-2 py-1 rounded">"fintech licensing regulations"</span>.</p>
+                </div>
+            </section>
+
+            <section class="md:col-span-2 bg-white rounded-lg shadow-md p-6 md:p-8">
+                <h2 class="text-3xl font-bold text-primary-dark mb-4">Part 2: The Agentic Leap: From Analysis to Autonomous Action</h2>
+                <p class="text-lg text-gray-700 mb-6">This is where AI transforms from a tool to a teammate. An Autonomous AI Agent is a system that uses the synthesis from Part 1 to make decisions and take actions based on pre-set strategic mandates, creating a fully automated workflow from data to decision.</p>
+
+                <div class="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0 md:space-x-4">
+                    
+                    <div class="text-center p-4 rounded-lg flow-box w-full md:w-1/4">
+                        <h4 class="text-xl font-semibold text-primary-dark">1. Data Ingestion</h4>
+                        <p class="text-sm">Structured (SQL) and Unstructured (News) Data</p>
+                    </div>
+                    
+                    <div class="flow-arrow hidden md:block">&rarr;</div>
+                    <div class="flow-arrow rotate-90 md:hidden">&darr;</div>
+
+                    <div class="text-center p-4 rounded-lg flow-box w-full md:w-1/4">
+                        <h4 class="text-xl font-semibold text-primary-dark">2. GenAI Synthesis</h4>
+                        <p class="text-sm">Generates a unified report: "Growth: 15%, Sentiment: Positive, Risk: High"</p>
+                    </div>
+                    
+                    <div class="flow-arrow hidden md:block">&rarr;</div>
+                    <div class="flow-arrow rotate-90 md:hidden">&darr;</div>
+
+                    <div class="text-center p-4 rounded-lg flow-box w-full md:w-1/4 bg-amber-100 border-accent-orange">
+                        <h4 class="text-xl font-semibold text-primary-dark">3. Portfolio Manager Agent</h4>
+                        <p class="text-sm font-mono">IF Growth > 10%<br>AND Sentiment = 'Positive'<br>AND Risk_Score < 0.7<br>THEN <span class="font-bold text-green-700">EXECUTE_BUY</span><br>ELSE <span class="font-bold text-red-700">FLAG_FOR_REVIEW</span></p>
+                    </div>
+                    
+                    <div class="flow-arrow hidden md:block">&rarr;</div>
+                    <div class="flow-arrow rotate-90 md:hidden">&darr;</div>
+
+                    <div class="text-center p-4 rounded-lg flow-box w-full md:w-1/4 bg-green-100 border-green-600">
+                        <h4 class="text-xl font-semibold text-green-800">4. Autonomous Decision</h4>
+                        <p class="text-sm">Action Taken:<br><span class="font-bold text-xl">HOLD / REVIEW</span><br>(Risk threshold was breached)</p>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="md:col-span-2 bg-white rounded-lg shadow-md p-6 md:p-8">
+                <h2 class="text-3xl font-bold text-primary-dark mb-4">The Human-in-the-Loop: Future of the Financial Analyst</h2>
+                <p class="text-lg text-gray-700 mb-6">AI agents don't replace the analyst; they change the job description. A "Feedback Agent" monitors the outcome of the AI's decision (did the "HOLD" decision save money?) and uses that result to continuously improve the model. The analyst's role shifts from "doer" to "director."</p>
+
+                <div class="chart-container" style="max-width: 700px;">
+                    <canvas id="skillRadarChart"></canvas>
+                </div>
+                
+                <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+                    <div class="bg-base-gray p-4 rounded-lg">
+                        <h4 class="text-xl font-semibold text-primary-dark">Prompt Engineer</h4>
+                        <p>Crafting the perfect questions to get the most accurate AI analysis.</p>
+                    </div>
+                    <div class="bg-base-gray p-4 rounded-lg">
+                        <h4 class="text-xl font-semibold text-primary-dark">AI Auditor</h4>
+                        <p>Validating the AI's output, checking for bias, and acting as the human-in-the-loop.</p>
+                    </div>
+                    <div class="bg-base-gray p-4 rounded-lg">
+                        <h4 class="text-xl font-semibold text-primary-dark">Strategist</h4>
+                        <p>Using the AI's analysis to ask bigger "what if" questions and define market strategy.</p>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+        
+        <footer class="text-center mt-12 text-gray-500 text-sm">
+            <p>Infographic generated based on "AI for Everyday Impact" masterclass content. All data is illustrative. No SVG or Mermaid JS used in this document.</p>
+        </footer>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            const tooltipCallback = {
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            title: function(tooltipItems) {
+                                const item = tooltipItems[0];
+                                let label = item.chart.data.labels[item.dataIndex];
+                                if (Array.isArray(label)) {
+                                  return label.join(' ');
+                                } else {
+                                  return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+            
+            const chartColors = ['#0094C6', '#F5A623', '#004E8A', '#F8E71C'];
+
+            const riskCtx = document.getElementById('riskBarChart').getContext('2d');
+            new Chart(riskCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Regulatory Risk', 'Market Volatility', 'Fraud Risk', 'Cybersecurity'],
+                    datasets: [{
+                        label: 'AI-Detected Risk Score (out of 100)',
+                        data: [85, 60, 45, 70],
+                        backgroundColor: chartColors,
+                        borderColor: '#ffffff',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100
+                        }
+                    },
+                    ...tooltipCallback
+                }
+            });
+
+            const skillCtx = document.getElementById('skillRadarChart').getContext('2d');
+            new Chart(skillCtx, {
+                type: 'radar',
+                data: {
+                    labels: [
+                        ['Data', 'Preparation'], 
+                        'Coding (SQL/Py)', 
+                        ['Prompt', 'Engineering'], 
+                        'AI Auditing', 
+                        'Strategy'
+                    ],
+                    datasets: [
+                        {
+                            label: 'Traditional Analyst',
+                            data: [9, 8, 1, 2, 4],
+                            backgroundColor: 'rgba(0, 78, 138, 0.2)',
+                            borderColor: '#004E8A',
+                            pointBackgroundColor: '#004E8A',
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: '#004E8A',
+                            borderWidth: 2
+                        },
+                        {
+                            label: 'Future Analyst (2025+)',
+                            data: [3, 4, 9, 8, 10],
+                            backgroundColor: 'rgba(245, 166, 35, 0.2)',
+                            borderColor: '#F5A623',
+                            pointBackgroundColor: '#F5A623',
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: '#F5A623',
+                            borderWidth: 2
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            beginAtZero: true,
+                            max: 10,
+                            pointLabels: {
+                                font: {
+                                    size: 13
+                                }
+                            }
+                        }
+                    },
+                    ...tooltipCallback
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
