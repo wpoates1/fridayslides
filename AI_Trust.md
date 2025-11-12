@@ -1,111 +1,94 @@
-# Presentation Research: "AI for Trust, Transparency & Inclusion"
+# AI for Trust, Transparency & Inclusion: From Global Principles to Practical Controls
 
-### 1. Regulatory Governance – Societal Level Concerns
+## Introduction: The Governance Triad
 
-**Slide Title:** The Global AI Rulebook: A Diverging Map
+The rapid integration of Artificial Intelligence, particularly generative AI, into core business functions presents a significant challenge. While the potential for efficiency and innovation is undeniable, it is paralleled by deep-seated concerns about trust, transparency, and fairness. This has created a "Governance Triad" where organizations must simultaneously manage AI at three distinct levels: the **Societal** (navigating a complex web of global regulations), the **Corporate** (aligning AI with firm-level strategy and risk), and the **Technical** (governing the data pipelines and models themselves).
 
-**Core Idea:** We are in a period of intense regulatory divergence. The world's major "AI blocs" are taking fundamentally different approaches, creating a complex compliance map for any international business, including Kenyan banks that may use US models, have EU/UK partners, or follow global compliance standards.
+This paper explores these three levels, arguing that effective governance requires moving from high-level principles to practical, auditable frameworks. We will examine the diverging global regulatory landscape, the strategic "trilemma" facing corporate boards, and the practical controls that can build demonstrable trust, using the EDM Council's draft ADAC (AI Data and Analytics Control) framework as a key example of an industry-led, practical solution.
 
-**Research & Key Points:**
+## 1. Regulatory Governance – Societal Level Concerns
+
+We are in a period of intense regulatory divergence. The world's major "AI blocs" are taking fundamentally different approaches, creating a complex compliance map for any international business.
 
 * **The European Union (EU): The "Rights-Based" Regulator**
-    * **Framework:** The **EU AI Act** [1].
-    * **Approach:** A comprehensive, horizontal (all-sector) law that is **risk-based**.
-    * **How it Works:** It categorizes AI systems:
-        * **Unacceptable Risk:** Banned (e.g., social scoring, real-time biometric surveillance).
-        * **High-Risk:** Heavily regulated (e.g., credit scoring, hiring, critical infrastructure). These require massive compliance, including data governance, human oversight, and transparency [1].
-        * **Limited Risk:** Light-touch transparency rules (e.g., a chatbot must disclose it's an AI).
-    * **Impact:** The "Brussels Effect"—this will likely become a global standard, much like GDPR. Any bank *touching* EU citizens (even abroad) will need to comply.
+    The EU AI Act [1] is a comprehensive, horizontal law that categorizes AI systems by risk. "Unacceptable Risk" systems (e.g., social scoring) are banned, while "High-Risk" systems (e.g., credit scoring, hiring) are heavily regulated, requiring massive compliance in data governance, human oversight, and transparency [1]. This is likely to set a global standard via the "Brussels Effect."
 
 * **The United States (US): The "Innovation-First" Market**
-    * **Framework:** **NIST AI Risk Management Framework (RMF)** [2] & The White House **Executive Order on AI** [3].
-    * **Approach:** A **pro-innovation, market-driven, and sectoral** stance. There is no single "AI Act."
-    * **How it Works:** The Executive Order [3] and NIST RMF [2] provide a *voluntary* (but highly influential) framework for companies to manage AI risk. The government's stance is to let existing regulators (like the Securities and Exchange Commission) apply their *existing* rules (e.g., on market manipulation or bias) to AI.
-    * **Impact:** Focus is on leadership and competition. This creates a more "permissive" environment, but also regulatory uncertainty.
+    The US has a pro-innovation, market-driven stance, articulated through the NIST AI Risk Management Framework (RMF) [2] and the White House Executive Order on AI [3]. This voluntary (but influential) framework encourages companies to manage risk while letting existing regulators (like the SEC) apply their rules to AI within their sectors.
 
 * **The United Kingdom (UK): The "Pragmatic" Middle-Ground**
-    * **Framework:** A **"pro-innovation," principles-based, and context-specific** policy (Feb 2024 White Paper response) [4].
-    * **Approach:** The UK has *explicitly rejected* a single "AI Act," fearing it would stifle innovation.
-    * **How it Works:** It empowers existing regulators (like the FCA for finance) to apply a set of five core principles (e.g., Safety, Fairness, Accountability) *within their own context* [4]. This is seen as a more flexible, "light-touch" approach than the EU's.
+    The UK has rejected a single "AI Act," fearing it would stifle innovation [4]. Its policy empowers existing regulators (like the FCA for finance) to apply a set of five core principles (e.g., Safety, Fairness, Accountability) within their own context, allowing for a more flexible, light-touch approach [4].
 
 * **China: The "State-Centric" Controller**
-    * **Framework:** Iterative, application-specific rules (e.g., on GenAI, algorithms) [5].
-    * **Approach:** A **state-centric, control-oriented** model.
-    * **How it Works:** China is regulating *specific applications* very quickly, with a focus on **social stability, content control, and algorithmic security** [5]. The state is both a heavy-handed regulator and the primary funder/customer for its national AI champions.
+    China employs a state-centric, control-oriented model with iterative, application-specific rules (e.g., on GenAI) [5]. The state is both a heavy-handed regulator and the primary customer, focusing on social stability and content control [5].
 
-**Key Question for Kenya:**
-* **Where will Kenya land?** Kenya is a tech *importer* (using US/Chinese models) and a service *exporter* (with links to UK/EU). It also has its own GDPR-inspired **Data Protection Act (2019)** [6].
-* **The Likely Path:** A "hybrid" or "straddle" approach. Kenya cannot afford to stifle its world-leading fintech sector (M-PESA, Tala, M-KOPA) with a heavy-handed EU-style law.
-* **Prediction:** Expect a **pragmatic, risk-based framework** that draws inspiration from the EU's *principles* (especially on data and bias, given the DPA [6]) but applies them with the *flexibility* of the UK model [4] to protect innovation. The CBK will play a central role.
+### The Key Question for Kenya
 
----
+Kenya, as a tech importer using US/Chinese models and a service exporter with links to the UK/EU, must navigate this map. A heavy-handed EU-style law could stifle its world-leading fintech sector (M-PESA, Tala). The likely path is a "hybrid" or "straddle" approach: a pragmatic, risk-based framework that draws on EU principles (especially on data and bias, given Kenya's Data Protection Act of 2019 [6]) but applies them with the flexibility of the UK model [4].
 
-### 2. Corporate Governance – Firm-Level Concerns
+## 2. Corporate Governance – Firm-Level Concerns
 
-**Slide Title:** The New Governance Trilemma: Balancing Risk & Opportunity
+For a bank's board, AI governance is not just a compliance problem; it's a strategic "trilemma" [7].
 
-**Core Idea:** For a bank's board, AI governance is not just a compliance problem; it's a strategic "trilemma." You must balance three competing pressures simultaneously [7].
+1.  **Commercial Opportunity:** The fear of not acting. "If we don't use AI for credit scoring, our competitors will be faster, cheaper, and more accurate, and we will lose market share."
+2.  **Reputation Risk (Customers):** The fear of public failure. "If our AI is found to be biased, it will be on the front page of The Standard." This is about public trust.
+3.  **Regulatory Risk (Regulator):** The fear of non-compliance. "If the CBK audits our model and we cannot explain why it denied a loan, we will face fines." This requires Explainability (XAI) and Model Risk Management (MRM), often building on existing guidance [8].
 
+This trilemma raises the structural question: how to organize governance? While some create "AI Ethics Councils," a more robust approach is to embed accountability directly into existing regimes, (e.g., the UK's Senior Managers and Certification Regime - SMCR) [9].
 
-
-**Research & Key Points:**
-
-* **The Trilemma (The 3 Pressures) [7]:**
-    1.  **Commercial Opportunity:** The fear of *not* acting. "If we don't use AI for credit scoring, our competitors will. They will be faster, cheaper, and more accurate, and we will lose market share." This drives the business to move quickly.
-    2.  **Reputation Risk (Customers):** The fear of *public failure*. "If we use this AI and it is found to be biased against a certain group, it will be on the front page of *The Standard*." This is about *Trust*. This is where **FAIR** principles (Fairness, Accountability, Transparency) are crucial as a public-facing commitment.
-    3.  **Regulatory Risk (Regulator):** The fear of *non-compliance*. "If the CBK audits our AI model and we cannot explain *why* it denied a loan, we will face fines and sanctions." This is about *Explainability (XAI)* and *Model Risk Management (MRM)*, often building on existing guidance [8].
-
-* **The Structural Question: How to Organize Governance?**
-    * **Option 1: The "New AI Board" (or AI Ethics Council).**
-        * **Pros:** Creates deep, specialist focus. Sends a strong signal to the market and regulators [7].
-        * **Cons:** Can become a silo ("ethics-washing") with no real power, or it can be a bottleneck that slows down innovation.
-    * **Option 2: "Embed in Existing Regimes."**
-        * **Concept:** Use what you have. In the UK, this is the **SMCR (Senior Managers and Certification Regime)**. The Head of Credit is made *personally accountable* for the credit-scoring AI, just as they are for the human underwriting team. The UK's Financial Conduct Authority (FCA) has explicitly linked AI governance to the SMCR [9].
-        * **Pros:** Creates *direct, personal accountability*, which regulators love. It integrates AI risk into existing business risk.
-        * **Cons:** Is the Senior Manager *equipped* to understand the AI? This places a massive burden on existing execs.
-    * **The Likely Outcome (Hybrid):** A central **AI Center of Excellence (CoE)** provides expert guidance, sets standards, and audits models, while the *ultimate accountability* for the AI's *output* and *risk* remains embedded with the business line owner (the Senior Manager) [9].
-
----
-
-### 3. 'Market' Governance – Technical & Model-Level Concerns
-
-**Slide Title:** Governing the "Black Box": From Prompting to Programming
-
-**Core Idea:** The old governance model was based on validating *code you wrote*. The new model is about governing *models you don't own* (e.g., using a Gemini or GPT API). This requires a new set of technical controls.
-
-**Research & Key Points:**
-
-* **The Problem:** Base models (LLMs) are often called "stochastic parrots" [10]. They are trained on the internet, have inherent biases, and can "hallucinate" (fabricate information). Your "prompt" is a fragile instruction, not a deterministic command.
-
-* **The "Old" Way (Brittle): Manual Prompt Engineering**
-    * **What it is:** A developer writes a 10-page "meta-prompt" (`"You are a helpful bank assistant. You must be polite. You must not give financial advice. If the user asks X, you must do Y..."`).
-    * **The Governance Risk:** It's a "dark art." It's not auditable, not reliable, and can break with a small change in the user's query or the base model's update. You are "prompting and praying."
-
-* **The "New" Way (Robust): Programmatic Frameworks**
-    * **Concept:** Stop "prompting" and start "programming." Use frameworks that *manage* the LLM as part of a larger, auditable system.
-    * **Example (as you mentioned): DSPy (from Stanford)** [11]
-        * **What it is:** A framework that separates the *program logic* from the *LLM*.
-        * **How it Works:**
-            1.  **Declare:** You define the *steps* you want (e.g., `Step 1: Check query for toxic language. Step 2: Retrieve customer's account balance. Step 3: Draft an answer.`).
-            2.  **Compile:** You give DSPy a few examples of "good" answers. The **DSPy compiler** *itself* then experiments with hundreds of different prompts for each step (and for different LLMs) to find the *most reliable and optimal combination* to get the right answer [11].
-            3.  **Result:** It turns a brittle prompt into a *robust, optimized, and verifiable program*.
-    * **Why this is "Governance":** This approach is **systematic, auditable, and testable**. You are no longer at the mercy of a single prompt. You have an engineering *discipline* for managing the AI, which you can document and show to a regulator. It's the key to building reliable systems on top of unreliable (but powerful) base models.
+This is where a practical framework becomes essential. Trust cannot be an abstract principle; it must be an engineering and governance discipline. The EDM Council's ADAC framework provides the practical, auditable steps to manage this trilemma.
 
 
+
+* **Addressing "Process Distrust" (The "Should We?"):** Distrust often comes from the process itself, which can feel like a "black box." **ADAC Component 2: Data & Analytics Ethics** provides a direct control. It mandates a formal, documented ethical review *before* development begins, forcing the business to answer, "Even if we *can* build this, *should* we?" This prevents uses of AI that are "creepy" or overreaching and builds public trust.
+
+* **Addressing "Outcome Distrust" (The "Who is Responsible?"):** **ADAC Component 6: AI Governance** provides the structure for accountability. It links directly to the SMCR concept by defining clear lines of responsibility [9]. It calls for a "Model Inventory" or "Registry," which acts as a central, auditable "single source of truth" logging every model, its risks, its owner, and its validation status. This turns the abstract goal of "accountability" into a concrete, auditable system.
+
+## 3. 'Market' Governance – Technical & Model-Level Concerns
+
+Trust at the corporate level must be built on a foundation of technical-level controls. This is where governance moves from "what we want" to "what we do." Here again, a practical framework like ADAC connects high-level goals to on-the-ground execution.
+
+### 3.1. Governing the Data Pipeline (The Foundation)
+
+You cannot have trustworthy AI without trustworthy data. Distrust in AI often starts with distrust in the data. **ADAC Component 3: Data Sourcing & Handling** provides a practical checklist for this.
+
+* **Data Provenance & Lineage:** The framework demands that data be traceable to its origin. This is a non-negotiable for any regulator.
+* **Data Quality Controls:** This moves beyond "garbage in, garbage out" by requiring automated, measurable checks for data accuracy, completeness, and timeliness.
+* **Privacy & Consent:** It mandates that data handling be aligned with privacy notices and consent given at collection, directly linking to regulations like Kenya's DPA [6].
+
+Furthermore, **Privacy-Preserving Technologies (PETs)** are the technical tools to achieve these controls. They are no longer academic; they are practical solutions for sharing data while building trust.
+* **Federated Learning:** Allows a central model to be trained (e.g., on fraud detection) without the raw, sensitive data ever leaving each bank's secure servers.
+* **Differential Privacy:** Adds statistical "noise" to data before it's shared, making it impossible to re-identify any single individual.
+
+### 3.2. Governing the Model (The Application)
+
+Once the data is governed, the model itself must be. **ADAC Component 4: Model Development & Validation** turns abstract goals like "transparency" into concrete metrics.
+
+* **Validation Beyond Accuracy:** ADAC mandates that validation *must* include:
+    * **Fairness Indicators (Metric):** Actively testing the model’s outcomes across different protected demographics to *quantify* bias. This becomes a key go/no-go metric.
+    * **Interpretability/Explainability (Metric):** Requiring the validation process to assess *why* a model is making its decisions (Explainability/XAI), not just *what* it decides.
+    * **Data Lineage (Metric):** Connecting the final model version back to the *exact* data version it was trained on, which is essential for auditing.
+* **"Fit-for-Purpose" Testing:** This requires a formal assessment of the model's robustness against real-world, "dirty" data, not just the clean training set.
+
+This governance challenge is amplified by generative AI. Base LLMs are often "stochastic parrots" [10]—probabilistic and prone to "hallucinating" (fabricating information). The old method of "prompting and praying" with a long, brittle metaprompt is not auditable or reliable.
+
+The new, robust approach is to "program" the LLM. Frameworks like **DSPy** from Stanford [11] separate the program logic from the LLM. A developer *declares* the steps, and a *compiler* tests hundreds of prompts to find the most reliable combination [11]. This turns a brittle prompt into a robust, optimized, and verifiable program. This is technical governance in action—it is a systematic, auditable, and testable engineering discipline for managing the AI, which can be documented and shown to a regulator.
+
+## 4. Conclusion
+
+Building trust, transparency, and inclusion in AI requires a multi-layered approach. The global regulatory landscape provides the high-level "rules of the road." But for an organization, real trust is built from the inside out. It starts at the corporate level by managing the strategic trilemma of opportunity, reputation, and regulation. It is then operationalized through practical, auditable frameworks like the EDM Council's ADAC, which provide specific controls for data ethics and governance. Finally, this framework is executed at the technical level through robust data pipelines, modern privacy-preserving technologies, and new engineering disciplines that can govern even the most complex generative models.
 
 ---
-
-### References
+## References
 
 1.  European Commission. (2024). *Artificial Intelligence Act*. (Final text adopted by the European Parliament, March 2024).
 2.  National Institute of Standards and Technology (NIST). (2024). *The AI Risk Management Framework (AI RMF 1.0)*. U.S. Department of Commerce.
 3.  The White House. (2023). *Executive Order on the Safe, Secure, and Trustworthy Development and Use of Artificial Intelligence*.
 4.  UK Department for Science, Innovation and Technology. (2024). *A pro-innovation approach to AI regulation: government response*. (February 2024).
-5.  Kania, E., & Webster, G. (2024). "China's AI Regulations and How They Get Made." *Stanford University Cyber Policy Center*.
+5.  Kania, E., & Webster, G. (2024). "China's AI Regulations and How They Get Made." Stanford University Cyber Policy Center.
 6.  Government of Kenya. (2019). *The Data Protection Act, 2019*.
 7.  World Economic Forum. (2023). *Governing AI: A Framework for Boards and C-Suites*.
 8.  U.S. Federal Reserve System. (2011). *SR 11-7: Guidance on Model Risk Management*.
-9.  Financial Conduct Authority (FCA). (2024). *AI in financial services: Feedback on Discussion Paper DP22/4*. (This feedback directly links AI accountability to the Senior Managers and Certification Regime - SMCR).
+9.  Financial Conduct Authority (FCA). (2024). *AI in financial services: Feedback on Discussion Paper DP22/4*.
 10. Bender, E. M., Gebru, T., McMillan-Major, A., & Shmitchell, S. (2021). "On the Dangers of Stochastic Parrots: Can Language Models Be Too Big?" *FAccT '21: Proceedings of the 2021 ACM Conference on Fairness, Accountability, and Transparency*.
 11. Khattab, O., Singhvi, A., El-Arini, K., Potts, C., & Zaharia, M. (2023). "DSPy: Compiling Declarative Language Model Calls into Self-Improving Pipelines." *arXiv:2310.03714*.
----END OF MARKDOWN---
